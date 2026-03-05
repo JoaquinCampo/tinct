@@ -31,17 +31,6 @@ Three more elements complete the palette:
 - **Gray** — comments, punctuation, structural noise
 - **Silver-blue** — `None`, representing absence/void rather than a concrete value
 
-### Why twelve, not six?
-
-The original philosophy grouped many tokens into "meta" gray — parameters, variables, types, decorators, properties, and `self` all competed for the same dim space. But these serve genuinely different cognitive roles. A parameter is not a variable is not a type hint. Giving each its own chromatic identity means you can identify what any token *does* from color alone, without reading it.
-
-### Color distance
-
-Adjacent colors are pushed apart on the color wheel so nothing blurs together:
-- **Teal** types vs **Cyan** calls — green-teal vs blue-cyan
-- **Pink** properties vs **Violet** logic — warm pink vs cool blue-violet
-- **Coral** parameters vs **Orange** decorators — rose-red vs warm orange
-- **Mint** numbers vs **Teal** types — bright seafoam vs deeper teal
 
 ## Design Principles
 
@@ -89,6 +78,3 @@ Tinct includes semantic token colors that work with VS Code's semantic highlight
 
 Make sure `"editor.semanticHighlighting.enabled": true` in your settings (it's on by default).
 
-## License
-
-MIT
