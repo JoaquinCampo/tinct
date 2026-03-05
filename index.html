@@ -45,38 +45,39 @@
     --t-except: #E8B850;        /* try, except, raise */
 
     /* GREEN — Values: things that ARE */
-    --t-string: #98D070;        /* strings */
-    --t-number: #68D0B0;        /* numbers — teal-green, cooler */
-    --t-const: #98D070;         /* True, False, None */
-    --t-escape: #68D0B0;        /* escape sequences */
+    --t-string: #90D068;        /* strings — warm green */
+    --t-number: #50E0A0;        /* numbers — bright mint, distinct from teal types */
+    --t-const: #90D068;         /* True, False — boolean data */
+    --t-none: #9098B8;          /* None — muted silver, the void */
+    --t-escape: #50E0A0;        /* escape sequences */
     --t-fstr: #E8B850;          /* f-string braces — dynamic, flow-like */
 
     /* PURPLE — Logic: things that REASON */
-    --t-logic: #C8A0F0;         /* and, or, not, is, in, comparisons */
-    --t-math: #B0A0D8;          /* +, -, *, /, %, ** */
-    --t-assign: #8898C0;        /* =, +=, -= */
+    --t-logic: #C090F8;         /* and, or, not, is, in — blue-violet */
+    --t-math: #A098D0;          /* +, -, *, / — desaturated, distinct from lavender */
+    --t-assign: #8090B0;        /* =, +=, -= */
 
     /* CYAN — References: things that CALL */
-    --t-call: #58B8D8;          /* function calls */
-    --t-builtin: #70D0E8;       /* built-in functions/types */
+    --t-call: #48B0E0;          /* function calls — blue-cyan, away from teal */
+    --t-builtin: #60C8F0;       /* built-in functions/types — brighter */
 
     /* CORAL — Parameters: things that FLOW IN */
-    --t-param: #E0A898;         /* function parameters */
+    --t-param: #E89888;         /* function parameters — pink-coral */
 
     /* TEAL — Types: things that DESCRIBE shape */
-    --t-type: #50C0C8;          /* type annotations */
+    --t-type: #38C8B8;          /* type annotations — green-teal, away from cyan */
 
-    /* LAVENDER — Properties: things that BELONG */
-    --t-prop: #C0B0E0;          /* object.property */
+    /* PINK — Properties: things that BELONG */
+    --t-prop: #D8A0C8;          /* object.property — pink-lavender, away from purple */
 
-    /* WARM PEACH — Decorators: things that TRANSFORM */
-    --t-decorator: #E89858;     /* @decorator */
+    /* ORANGE — Decorators: things that TRANSFORM */
+    --t-decorator: #F09048;     /* @decorator — distinctly orange */
 
     /* STEEL — Self: the INSTANCE itself */
-    --t-self: #8090B8;          /* self, cls */
+    --t-self: #7080B8;          /* self, cls */
 
     /* SAND — Variables: things that HOLD */
-    --t-var: #D0C8B0;           /* local variables */
+    --t-var: #D8C8A0;           /* local variables — warmer cream */
 
     /* OLIVE — Documentation: things that EXPLAIN */
     --t-docstring: #88A868;     /* docstrings */
@@ -107,23 +108,24 @@
     --t-except: #8A5508;
 
     --t-string: #287820;
-    --t-number: #087868;
+    --t-number: #087058;
     --t-const: #287820;
-    --t-escape: #087868;
+    --t-none: #6878A0;
+    --t-escape: #087058;
     --t-fstr: #9A6508;
 
-    --t-logic: #7030A8;
-    --t-math: #5858A0;
+    --t-logic: #6828A8;
+    --t-math: #5050A0;
     --t-assign: #5868A0;
 
-    --t-call: #187898;
-    --t-builtin: #0C6880;
+    --t-call: #186098;
+    --t-builtin: #0C5888;
 
-    --t-param: #A84828;
-    --t-type: #088888;
-    --t-prop: #5848A0;
-    --t-decorator: #B85C18;
-    --t-self: #5870A0;
+    --t-param: #B83820;
+    --t-type: #088080;
+    --t-prop: #7040A0;
+    --t-decorator: #C85010;
+    --t-self: #5068A0;
     --t-var: #38384E;
     --t-docstring: #4C7828;
     --t-comment: #7888A0;
@@ -214,6 +216,7 @@
   .fs  { color: var(--t-fstr); }
   .n   { color: var(--t-number); }
   .cn  { color: var(--t-const); font-weight: bold; }
+  .nn  { color: var(--t-none); font-style: italic; }
   .kw  { color: var(--t-structure); }
   .im  { color: var(--t-import); }
   .fd  { color: var(--t-func-def); }
@@ -310,7 +313,7 @@
       </div>
       <div class="legend-card">
         <h3><span class="swatch" style="background:var(--t-string)"></span> Green &mdash; Values</h3>
-        <p>Things that <strong>are</strong>. <code class="s">"strings"</code> <code class="n">42</code> <code class="n">3.14</code> <code class="cn">True</code> <code class="cn">None</code>. Numbers get a cooler <code class="n">teal</code>, text a warmer <code class="s">green</code>.</p>
+        <p>Things that <strong>are</strong>. <code class="s">"strings"</code> <code class="n">42</code> <code class="cn">True</code> <code class="cn">False</code>. Numbers get a cooler <code class="n">mint</code>, text a warmer <code class="s">green</code>. <code class="nn">None</code> is muted &mdash; it's the <em>absence</em> of a value.</p>
       </div>
       <div class="legend-card">
         <h3><span class="swatch" style="background:var(--t-logic)"></span> Purple &mdash; Logic</h3>
@@ -391,7 +394,7 @@ const L = [
   [['kw','class'], ['',' '], ['cd','ValidationError'], ['p','('], ['ih','PipelineError'], ['p',')'], ['p',':']],
   [['','    '], ['ds','"""Raised when a record fails validation."""']],
   [],
-  [['','    '], ['kw','def'], ['',' '], ['fd','__init__'], ['p','('], ['sl','self'], ['p',', '], ['pm','field_name'], ['p',': '], ['ty','str'], ['p',', '], ['pm','value'], ['p',': '], ['ty','Any'], ['p',', '], ['pm','reason'], ['p',': '], ['ty','str'], ['',' '], ['ao','='], ['',' '], ['s','"invalid"'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['cn','None'], ['p',':']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','__init__'], ['p','('], ['sl','self'], ['p',', '], ['pm','field_name'], ['p',': '], ['ty','str'], ['p',', '], ['pm','value'], ['p',': '], ['ty','Any'], ['p',', '], ['pm','reason'], ['p',': '], ['ty','str'], ['',' '], ['ao','='], ['',' '], ['s','"invalid"'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['nn','None'], ['p',':']],
   [['','        '], ['sl','self'], ['p','.'], ['pr','field_name'], ['',' '], ['ao','='], ['',' '], ['v','field_name']],
   [['','        '], ['sl','self'], ['p','.'], ['pr','value'], ['',' '], ['ao','='], ['',' '], ['v','value']],
   [['','        '], ['bi','super'], ['p','()'], ['p','.'], ['ca','__init__'], ['p','('], ['s','f"'], ['fs','{'], ['v','field_name'], ['fs','}'], ['s','='], ['fs','{'], ['v','value'], ['fs','!r}'], ['s',': '], ['fs','{'], ['v','reason'], ['fs','}'], ['s','"'], ['p',')']],
@@ -434,18 +437,18 @@ const L = [
   [['kw','class'], ['',' '], ['cd','Pipeline'], ['p',':']],
   [['','    '], ['ds','"""Orchestrates data flow through a sequence of stages."""']],
   [],
-  [['','    '], ['kw','def'], ['',' '], ['fd','run'], ['p','('], ['sl','self'], ['p',', '], ['pm','records'], ['p',': '], ['ty','list'], ['p','['], ['cd','Record'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Generator'], ['p','['], ['cd','Record'], ['p',', '], ['cn','None'], ['p',', '], ['cn','None'], ['p',']'], ['p',':']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','run'], ['p','('], ['sl','self'], ['p',', '], ['pm','records'], ['p',': '], ['ty','list'], ['p','['], ['cd','Record'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Generator'], ['p','['], ['cd','Record'], ['p',', '], ['nn','None'], ['p',', '], ['nn','None'], ['p',']'], ['p',':']],
   [['','        '], ['ds','"""Process records through all stages, yielding survivors."""']],
   [['','        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"start"'], ['p',', '], ['p','{'], ['s','"count"'], ['p',': '], ['bi','len'], ['p','('], ['v','records'], ['p',')'], ['p','}'], ['p',')']],
   [],
   [['','        '], ['fl','for'], ['',' '], ['v','record'], ['',' '], ['lg','in'], ['',' '], ['v','records'], ['p',':']],
-  [['','            '], ['v','result'], ['p',':'], ['',' '], ['cd','Record'], ['',' '], ['lg','|'], ['',' '], ['cn','None'], ['',' '], ['ao','='], ['',' '], ['v','record']],
+  [['','            '], ['v','result'], ['p',':'], ['',' '], ['cd','Record'], ['',' '], ['lg','|'], ['',' '], ['nn','None'], ['',' '], ['ao','='], ['',' '], ['v','record']],
   [['','            '], ['fl','for'], ['',' '], ['v','stage'], ['',' '], ['lg','in'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stages'], ['p',':']],
-  [['','                '], ['fl','if'], ['',' '], ['v','result'], ['',' '], ['lg','is'], ['',' '], ['cn','None'], ['p',':']],
+  [['','                '], ['fl','if'], ['',' '], ['v','result'], ['',' '], ['lg','is'], ['',' '], ['nn','None'], ['p',':']],
   [['','                    '], ['fl','break']],
   [['','                '], ['v','result'], ['',' '], ['ao','='], ['',' '], ['v','stage'], ['p','.'], ['ca','process'], ['p','('], ['v','result'], ['p',')']],
   [],
-  [['','            '], ['fl','if'], ['',' '], ['v','result'], ['',' '], ['lg','is not'], ['',' '], ['cn','None'], ['p',':']],
+  [['','            '], ['fl','if'], ['',' '], ['v','result'], ['',' '], ['lg','is not'], ['',' '], ['nn','None'], ['p',':']],
   [['','                '], ['v','result'], ['p','.'], ['ca','mark_done'], ['p','()']],
   [['','                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
   [['','                '], ['rt','yield'], ['',' '], ['v','result']],

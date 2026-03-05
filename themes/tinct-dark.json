@@ -249,7 +249,7 @@
         "string.template"
       ],
       "settings": {
-        "foreground": "#98D070"
+        "foreground": "#90D068"
       }
     },
     {
@@ -259,7 +259,7 @@
         "constant.character.unicode"
       ],
       "settings": {
-        "foreground": "#68D0B0"
+        "foreground": "#50E0A0"
       }
     },
     {
@@ -283,7 +283,7 @@
         "constant.numeric.binary"
       ],
       "settings": {
-        "foreground": "#68D0B0"
+        "foreground": "#50E0A0"
       }
     },
     {
@@ -293,7 +293,7 @@
         "constant.language.python"
       ],
       "settings": {
-        "foreground": "#98D070",
+        "foreground": "#90D068",
         "fontStyle": "bold"
       }
     },
@@ -368,7 +368,7 @@
         "keyword.operator.logical.python"
       ],
       "settings": {
-        "foreground": "#C8A0F0"
+        "foreground": "#C090F8"
       }
     },
     {
@@ -383,7 +383,7 @@
         "keyword.operator.expression.of"
       ],
       "settings": {
-        "foreground": "#C8A0F0"
+        "foreground": "#C090F8"
       }
     },
     {
@@ -394,7 +394,7 @@
         "keyword.operator"
       ],
       "settings": {
-        "foreground": "#B0A0D8"
+        "foreground": "#A098D0"
       }
     },
     {
@@ -405,7 +405,7 @@
         "keyword.operator.assignment.compound"
       ],
       "settings": {
-        "foreground": "#8898C0"
+        "foreground": "#8090B0"
       }
     },
     {
@@ -445,7 +445,7 @@
         "punctuation.definition.annotation"
       ],
       "settings": {
-        "foreground": "#E89858"
+        "foreground": "#F09048"
       }
     },
     {
@@ -455,7 +455,7 @@
         "entity.name.function.decorator"
       ],
       "settings": {
-        "foreground": "#E89858"
+        "foreground": "#F09048"
       }
     },
     {
@@ -465,7 +465,7 @@
         "meta.function-call entity.name.function"
       ],
       "settings": {
-        "foreground": "#58B8D8"
+        "foreground": "#48B0E0"
       }
     },
     {
@@ -475,7 +475,7 @@
         "support.function"
       ],
       "settings": {
-        "foreground": "#70D0E8"
+        "foreground": "#60C8F0"
       }
     },
     {
@@ -486,7 +486,7 @@
         "support.class.builtin"
       ],
       "settings": {
-        "foreground": "#70D0E8"
+        "foreground": "#60C8F0"
       }
     },
     {
@@ -500,7 +500,7 @@
         "variable.language.special.cls.python"
       ],
       "settings": {
-        "foreground": "#8090B8",
+        "foreground": "#7080B8",
         "fontStyle": "italic"
       }
     },
@@ -511,7 +511,7 @@
         "variable.parameter.function.python"
       ],
       "settings": {
-        "foreground": "#E0A898"
+        "foreground": "#E89888"
       }
     },
     {
@@ -521,7 +521,7 @@
         "variable.other.readwrite"
       ],
       "settings": {
-        "foreground": "#D0C8B0"
+        "foreground": "#D8C8A0"
       }
     },
     {
@@ -532,7 +532,7 @@
         "meta.attribute.python"
       ],
       "settings": {
-        "foreground": "#C0B0E0"
+        "foreground": "#D8A0C8"
       }
     },
     {
@@ -543,7 +543,7 @@
         "meta.function.python meta.type.annotation"
       ],
       "settings": {
-        "foreground": "#50C0C8"
+        "foreground": "#38C8B8"
       }
     },
     {
@@ -573,7 +573,7 @@
         "punctuation.definition.string.end"
       ],
       "settings": {
-        "foreground": "#98D070"
+        "foreground": "#90D068"
       }
     },
     {
@@ -612,7 +612,7 @@
         "string.quoted.single.html"
       ],
       "settings": {
-        "foreground": "#98D070"
+        "foreground": "#90D068"
       }
     },
     {
@@ -632,7 +632,7 @@
         "support.constant.color.css"
       ],
       "settings": {
-        "foreground": "#98D070"
+        "foreground": "#90D068"
       }
     },
     {
@@ -652,7 +652,7 @@
         "keyword.other.unit.css"
       ],
       "settings": {
-        "foreground": "#68D0B0"
+        "foreground": "#50E0A0"
       }
     },
     {
@@ -716,7 +716,7 @@
         "markup.raw.block"
       ],
       "settings": {
-        "foreground": "#98D070"
+        "foreground": "#90D068"
       }
     },
     {
@@ -755,7 +755,7 @@
         "string.regexp"
       ],
       "settings": {
-        "foreground": "#70D0E8"
+        "foreground": "#60C8F0"
       }
     },
     {
@@ -789,7 +789,7 @@
         "support.type.primitive"
       ],
       "settings": {
-        "foreground": "#50C0C8"
+        "foreground": "#38C8B8"
       }
     },
     {
@@ -800,7 +800,7 @@
         "punctuation.definition.lifetime.rust"
       ],
       "settings": {
-        "foreground": "#E89858"
+        "foreground": "#F09048"
       }
     },
     {
@@ -810,7 +810,7 @@
         "support.function.macro"
       ],
       "settings": {
-        "foreground": "#E89858"
+        "foreground": "#F09048"
       }
     },
     {
@@ -836,50 +836,50 @@
   ],
   "semanticTokenColors": {
     "function.declaration:python": "#88BAFF",
-    "function:python": "#58B8D8",
+    "function:python": "#48B0E0",
     "method.declaration:python": "#88BAFF",
-    "method:python": "#58B8D8",
+    "method:python": "#48B0E0",
     "class.declaration:python": "#A0CCFF",
     "class:python": "#A0CCFF",
-    "parameter:python": "#E0A898",
-    "variable:python": "#D0C8B0",
-    "property:python": "#C0B0E0",
+    "parameter:python": "#E89888",
+    "variable:python": "#D8C8A0",
+    "property:python": "#D8A0C8",
     "selfParameter:python": {
-      "foreground": "#8090B8",
+      "foreground": "#7080B8",
       "fontStyle": "italic"
     },
     "clsParameter:python": {
-      "foreground": "#8090B8",
+      "foreground": "#7080B8",
       "fontStyle": "italic"
     },
-    "decorator:python": "#E89858",
-    "type:python": "#50C0C8",
+    "decorator:python": "#F09048",
+    "type:python": "#38C8B8",
     "builtinConstant:python": {
-      "foreground": "#98D070",
+      "foreground": "#90D068",
       "fontStyle": "bold"
     },
-    "function.defaultLibrary:python": "#70D0E8",
-    "class.defaultLibrary:python": "#70D0E8",
+    "function.defaultLibrary:python": "#60C8F0",
+    "class.defaultLibrary:python": "#60C8F0",
 
     "function.declaration": "#88BAFF",
-    "function": "#58B8D8",
+    "function": "#48B0E0",
     "method.declaration": "#88BAFF",
-    "method": "#58B8D8",
+    "method": "#48B0E0",
     "class.declaration": "#A0CCFF",
     "class": "#A0CCFF",
-    "parameter": "#E0A898",
-    "variable": "#D0C8B0",
-    "property": "#C0B0E0",
-    "type": "#50C0C8",
-    "interface": "#50C0C8",
+    "parameter": "#E89888",
+    "variable": "#D8C8A0",
+    "property": "#D8A0C8",
+    "type": "#38C8B8",
+    "interface": "#38C8B8",
     "enum": "#A0CCFF",
     "enumMember": {
-      "foreground": "#98D070",
+      "foreground": "#90D068",
       "fontStyle": "bold"
     },
     "namespace": "#A0CCFF",
-    "decorator": "#E89858",
-    "function.defaultLibrary": "#70D0E8",
-    "variable.defaultLibrary": "#70D0E8"
+    "decorator": "#F09048",
+    "function.defaultLibrary": "#60C8F0",
+    "variable.defaultLibrary": "#60C8F0"
   }
 }
