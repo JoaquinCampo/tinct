@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tinct — A VS Code Theme Where Every Color Has a Reason</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --page-bg: #0e1020;
+    --page-fg: #c0c8e0;
+    --muted: #6070a0;
+    --card-bg: #141628;
+    --card-border: #1e2240;
+  }
+  :root.light {
+    --page-bg: #f0f2f8;
+    --page-fg: #2e3440;
+    --muted: #6878a0;
+    --card-bg: #ffffff;
+    --card-border: #d8dce8;
+  }
+
+  /* Dark theme editor colors */
+  :root {
+    --ed-bg: #181A2E; --ed-fg: #C5CADA;
+    --ed-ln: #3A3F5C; --ed-ln-a: #7882A0;
+    --ed-gutter: #1e2138; --ed-tab-bg: #141626; --ed-tab-active: #181A2E;
+    --ed-tab-border: #7AA2F0; --ed-tab-fg: #C5CADA; --ed-tab-ifg: #606880;
+    --ed-sidebar: #111322; --ed-title: #111322; --ed-status: #111322;
+    --ed-status-fg: #6B78A0;
+    /* Token colors */
+    --t-comment: #505870; --t-docstring: #606880;
+    --t-string: #8FBF6A; --t-escape: #6ABFAA; --t-fstr: #E8B84D;
+    --t-number: #6ABFAA; --t-const: #8FBF6A;
+    --t-structure: #7AA2F0; --t-import: #6B93E0;
+    --t-func-def: #82B1FF; --t-class-def: #9AC0FF;
+    --t-flow: #E8B84D; --t-return: #F0C96A; --t-except: #E8B84D;
+    --t-logic: #B48EDB; --t-math: #A0A8C8; --t-assign: #808898;
+    --t-call: #5EB8D4; --t-builtin: #6EC8E0;
+    --t-decorator: #D08860; --t-self: #606880;
+    --t-type: #7882A0; --t-punct: #404860; --t-prop: #A8B8CC;
+    --t-inherited: #9AC0FF;
+  }
+  :root.light {
+    --ed-bg: #FAFBFE; --ed-fg: #2E3440;
+    --ed-ln: #B0B8C8; --ed-ln-a: #6070A0;
+    --ed-gutter: #F0F2F8; --ed-tab-bg: #EEF0F6; --ed-tab-active: #FAFBFE;
+    --ed-tab-border: #2E5BAA; --ed-tab-fg: #2E3440; --ed-tab-ifg: #8890A8;
+    --ed-sidebar: #E8EAF2; --ed-title: #E8EAF2; --ed-status: #E8EAF2;
+    --ed-status-fg: #6878A0;
+    --t-comment: #9098A8; --t-docstring: #7880A0;
+    --t-string: #3A7A2A; --t-escape: #1A7A6A; --t-fstr: #A06B10;
+    --t-number: #1A7A6A; --t-const: #3A7A2A;
+    --t-structure: #2E5BAA; --t-import: #3968B8;
+    --t-func-def: #1A4FA0; --t-class-def: #1A4FA0;
+    --t-flow: #A06B10; --t-return: #B87A18; --t-except: #8A5A08;
+    --t-logic: #7B42AC; --t-math: #6068A0; --t-assign: #7080A0;
+    --t-call: #1A7D99; --t-builtin: #0E6E8A;
+    --t-decorator: #A86030; --t-self: #8890A8;
+    --t-type: #5868A0; --t-punct: #B0B8C8; --t-prop: #4A5A70;
+    --t-inherited: #1A7D99;
+  }
+
+  body {
+    background: var(--page-bg);
+    color: var(--page-fg);
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
+
+  /* Header */
+  header { text-align: center; padding: 3rem 0 2rem; }
+  header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
+  header h1 .accent { color: var(--t-structure); }
+  header p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+
+  /* Toggle */
+  .toggle-wrap { display: flex; justify-content: center; margin: 1.5rem 0 2.5rem; gap: 0.75rem; align-items: center; }
+  .toggle-label { font-size: 0.85rem; color: var(--muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; }
+  .toggle-label.active { color: var(--page-fg); }
+  .toggle-btn {
+    width: 52px; height: 28px; border-radius: 14px; border: none; cursor: pointer;
+    background: var(--card-border); position: relative; transition: background 0.3s;
+  }
+  .toggle-btn::after {
+    content: ''; position: absolute; top: 3px; left: 3px;
+    width: 22px; height: 22px; border-radius: 11px;
+    background: var(--page-fg); transition: transform 0.3s, background 0.3s;
+  }
+  :root.light .toggle-btn::after { transform: translateX(24px); }
+
+  /* Editor frame */
+  .editor-frame {
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+    border: 1px solid var(--card-border);
+    margin-bottom: 3rem;
+  }
+  :root.light .editor-frame { box-shadow: 0 8px 40px rgba(0,0,0,0.1); }
+  .editor-titlebar {
+    background: var(--ed-title); padding: 8px 16px; display: flex; align-items: center; gap: 8px;
+  }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .dot.r { background: #E05858; } .dot.y { background: #E8B84D; } .dot.g { background: #8FBF6A; }
+  :root.light .dot.r { background: #D04040; }
+  :root.light .dot.y { background: #C08A20; }
+  :root.light .dot.g { background: #3A8A2A; }
+  .editor-tabs {
+    background: var(--ed-tab-bg); display: flex; border-bottom: 1px solid var(--ed-gutter);
+  }
+  .tab {
+    padding: 8px 20px; font-size: 13px; font-family: 'Inter', sans-serif;
+    color: var(--ed-tab-ifg); border-top: 2px solid transparent;
+  }
+  .tab.active {
+    background: var(--ed-tab-active); color: var(--ed-tab-fg);
+    border-top-color: var(--ed-tab-border);
+  }
+  .editor-body {
+    background: var(--ed-bg); padding: 1rem 0; overflow-x: auto;
+    font-family: 'JetBrains Mono', 'Fira Code', monospace; font-size: 13px; line-height: 1.65;
+  }
+  .line { display: flex; padding: 0 1rem 0 0; min-height: 1.65em; }
+  .line:hover { background: var(--ed-gutter); }
+  .ln {
+    width: 52px; min-width: 52px; text-align: right; padding-right: 16px;
+    color: var(--ed-ln); user-select: none; flex-shrink: 0;
+  }
+  .line:hover .ln { color: var(--ed-ln-a); }
+  .code { color: var(--ed-fg); white-space: pre; }
+  .editor-statusbar {
+    background: var(--ed-status); padding: 3px 12px;
+    font-size: 12px; color: var(--ed-status-fg);
+    display: flex; justify-content: space-between;
+  }
+
+  /* Token classes */
+  .cm  { color: var(--t-comment); font-style: italic; }
+  .ds  { color: var(--t-docstring); font-style: italic; }
+  .s   { color: var(--t-string); }
+  .esc { color: var(--t-escape); }
+  .fs  { color: var(--t-fstr); }
+  .n   { color: var(--t-number); }
+  .cn  { color: var(--t-const); font-weight: bold; }
+  .kw  { color: var(--t-structure); }
+  .kwb { color: var(--t-structure); font-weight: bold; }
+  .im  { color: var(--t-import); }
+  .fd  { color: var(--t-func-def); }
+  .cd  { color: var(--t-class-def); }
+  .fl  { color: var(--t-flow); }
+  .rt  { color: var(--t-return); }
+  .ex  { color: var(--t-except); }
+  .lg  { color: var(--t-logic); }
+  .mo  { color: var(--t-math); }
+  .ao  { color: var(--t-assign); }
+  .ca  { color: var(--t-call); }
+  .bi  { color: var(--t-builtin); }
+  .dc  { color: var(--t-decorator); }
+  .sl  { color: var(--t-self); font-style: italic; }
+  .ty  { color: var(--t-type); }
+  .p   { color: var(--t-punct); }
+  .pr  { color: var(--t-prop); }
+  .ih  { color: var(--t-inherited); font-style: italic; }
+
+  /* Legend */
+  .legend { margin-bottom: 3rem; }
+  .legend h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 1.25rem; text-align: center; }
+  .legend-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+  }
+  .legend-card {
+    background: var(--card-bg); border: 1px solid var(--card-border);
+    border-radius: 8px; padding: 1.1rem 1.25rem;
+    transition: background 0.3s, border-color 0.3s;
+  }
+  .legend-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.5rem; }
+  .legend-card h3 .swatch {
+    display: inline-block; width: 14px; height: 14px; border-radius: 3px;
+  }
+  .legend-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.5; }
+  .legend-card code {
+    font-family: 'JetBrains Mono', monospace; font-size: 0.8rem;
+    background: var(--ed-bg); padding: 1px 5px; border-radius: 3px;
+  }
+
+  /* Footer */
+  footer { text-align: center; padding: 2rem 0; color: var(--muted); font-size: 0.85rem; }
+  footer a { color: var(--t-structure); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 700px) {
+    header h1 { font-size: 1.8rem; }
+    .editor-body { font-size: 11px; }
+    .ln { width: 36px; min-width: 36px; padding-right: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><span class="accent">Tinct</span></h1>
+    <p>A VS Code color theme where every color maps to a cognitive role. Designed for Python, works everywhere.</p>
+  </header>
+
+  <div class="toggle-wrap">
+    <span class="toggle-label active" id="lbl-dark">Dark</span>
+    <button class="toggle-btn" id="toggle" aria-label="Toggle dark/light theme"></button>
+    <span class="toggle-label" id="lbl-light">Light</span>
+  </div>
+
+  <div class="editor-frame">
+    <div class="editor-titlebar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+    </div>
+    <div class="editor-tabs">
+      <div class="tab active">pipeline.py</div>
+      <div class="tab">config.json</div>
+    </div>
+    <div class="editor-body" id="code"></div>
+    <div class="editor-statusbar">
+      <span>Python &mdash; UTF-8</span>
+      <span>Tinct Dark</span>
+    </div>
+  </div>
+
+  <div class="legend">
+    <h2>The Color System</h2>
+    <div class="legend-grid">
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-structure)"></span> Blue &mdash; Structure</h3>
+        <p>Things that <strong>create</strong>. <code class="kw">def</code> <code class="kw">class</code> <code class="kw">lambda</code> <code class="im">import</code> <code class="im">from</code>. Blue suggests blueprints, architecture, the skeleton of your program.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-flow)"></span> Amber &mdash; Flow</h3>
+        <p>Things that <strong>direct</strong>. <code class="fl">if</code> <code class="fl">for</code> <code class="fl">while</code> <code class="rt">return</code> <code class="fl">try</code> <code class="fl">raise</code>. Amber means caution &mdash; execution could go different ways here.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-string)"></span> Green &mdash; Values</h3>
+        <p>Things that <strong>are</strong>. <code class="s">"strings"</code> <code class="n">42</code> <code class="n">3.14</code> <code class="cn">True</code> <code class="cn">None</code>. Green is ground truth, the concrete data your program operates on.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-logic)"></span> Purple &mdash; Logic</h3>
+        <p>Things that <strong>reason</strong>. <code class="lg">and</code> <code class="lg">or</code> <code class="lg">not</code> <code class="lg">is</code> <code class="lg">in</code> <code class="lg">==</code>. Purple marks the decision-making layer of your code.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-call)"></span> Cyan &mdash; References</h3>
+        <p>Things that <strong>point</strong>. <code class="ca">func()</code> <code class="bi">print()</code> <code class="bi">len()</code>. Cyan sits between blue (structure) and green (values) &mdash; references use structure to access values.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-comment)"></span> Gray &mdash; Meta</h3>
+        <p>Things that <strong>describe</strong>. <code class="cm"># comments</code> <code class="ty">type hints</code> <code class="dc">@decorators</code> <code class="sl">self</code>. Not executed, not competing &mdash; informational elements fade.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      <a href="https://github.com/JoaquinCampo/tinct">GitHub</a> &middot;
+      Install: <code>ext install JoaquinCampo.tinct</code>
+    </p>
+  </footer>
+</div>
+
+<script>
+// Toggle
+const toggle = document.getElementById('toggle');
+const lblDark = document.getElementById('lbl-dark');
+const lblLight = document.getElementById('lbl-light');
+const statusLabel = document.querySelector('.editor-statusbar span:last-child');
+
+toggle.addEventListener('click', () => {
+  document.documentElement.classList.toggle('light');
+  const isLight = document.documentElement.classList.contains('light');
+  lblDark.classList.toggle('active', !isLight);
+  lblLight.classList.toggle('active', isLight);
+  statusLabel.textContent = isLight ? 'Tinct Light' : 'Tinct Dark';
+});
+
+// Code — hand-tokenized Python with span classes
+// Each line is an array of [class, text] pairs. '' = default foreground.
+const lines = [
+  [['cm', '# -- Exceptions --------------------------------------------------------------']],
+  [],
+  [['kw', 'class'], ['',' '], ['cd','PipelineError'], ['p','('], ['ih','Exception'], ['p',')'], ['p',':']],
+  [['', '    '], ['ds', '"""Base exception for all pipeline failures."""']],
+  [],
+  [],
+  [['kw', 'class'], ['',' '], ['cd','ValidationError'], ['p','('], ['ih','PipelineError'], ['p',')'], ['p',':']],
+  [['', '    '], ['ds', '"""Raised when a record fails validation."""']],
+  [],
+  [['', '    '], ['kw','def'], ['',' '], ['fd','__init__'], ['p','('], ['sl','self'], ['p',', '], ['','field_name'], ['p',': '], ['ty','str'], ['p',', '], ['','value'], ['p',': '], ['ty','Any'], ['p',', '], ['','reason'], ['p',': '], ['ty','str'], ['',' '], ['ao','='], ['',' '], ['s','"invalid"'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['cn','None'], ['p',':']],
+  [['', '        '], ['sl','self'], ['p','.'], ['pr','field_name'], ['',' '], ['ao','='], ['',' '], ['','field_name']],
+  [['', '        '], ['sl','self'], ['p','.'], ['pr','value'], ['',' '], ['ao','='], ['',' '], ['','value']],
+  [['', '        '], ['bi','super'], ['p','()'], ['p','.'], ['ca','__init__'], ['p','('], ['s','f"'], ['fs','{'], ['','field_name'], ['fs','}'], ['s','='], ['fs','{'], ['','value'], ['fs','!r}'], ['s',': '], ['fs','{'], ['','reason'], ['fs','}'], ['s','"'], ['p',')']],
+  [],
+  [],
+  [['cm', '# -- Decorators --------------------------------------------------------------']],
+  [],
+  [['','T'], ['',' '], ['ao','='], ['',' '], ['ca','TypeVar'], ['p','('], ['s','"T"'], ['p',')']],
+  [],
+  [],
+  [['kw','def'], ['',' '], ['fd','register'], ['p','('], ['','name'], ['p',': '], ['ty','str'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Callable'], ['p',':']],
+  [['', '    '], ['ds', '"""Class decorator that registers a stage in the global registry."""']],
+  [['', '    '], ['kw','def'], ['',' '], ['fd','decorator'], ['p','('], ['','cls'], ['p',': '], ['ty','type'], ['p','['], ['ty','T'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','type'], ['p','['], ['ty','T'], ['p',']'], ['p',':']],
+  [['', '        '], ['','_REGISTRY'], ['p','['], ['','name'], ['p',']'], ['',' '], ['ao','='], ['',' '], ['','cls']],
+  [['', '        '], ['rt','return'], ['',' '], ['','cls']],
+  [['', '    '], ['rt','return'], ['',' '], ['','decorator']],
+  [],
+  [],
+  [['cm', '# -- Data models -------------------------------------------------------------']],
+  [],
+  [['dc','@'], ['dc','dataclass']],
+  [['kw','class'], ['',' '], ['cd','Record'], ['p',':']],
+  [['', '    '], ['ds', '"""A single data record flowing through the pipeline."""']],
+  [['', '    '], ['','id'], ['p',':'], ['',' '], ['ty','int']],
+  [['', '    '], ['','payload'], ['p',':'], ['',' '], ['ty','dict'], ['p','['], ['ty','str'], ['p',', '], ['ty','Any'], ['p',']']],
+  [['', '    '], ['','tags'], ['p',':'], ['',' '], ['ty','list'], ['p','['], ['ty','str'], ['p',']'], ['',' '], ['ao','='], ['',' '], ['ca','field'], ['p','('], ['','default_factory'], ['ao','='], ['bi','list'], ['p',')']],
+  [['', '    '], ['','_processed'], ['p',':'], ['',' '], ['ty','bool'], ['',' '], ['ao','='], ['',' '], ['ca','field'], ['p','('], ['','default'], ['ao','='], ['cn','False'], ['p',', '], ['','repr'], ['ao','='], ['cn','False'], ['p',')']],
+  [],
+  [['', '    '], ['dc','@'], ['dc','property']],
+  [['', '    '], ['kw','def'], ['',' '], ['fd','is_processed'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','bool'], ['p',':']],
+  [['', '        '], ['rt','return'], ['',' '], ['sl','self'], ['p','.'], ['pr','_processed']],
+  [],
+  [['', '    '], ['kw','def'], ['',' '], ['fd','__str__'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','str'], ['p',':']],
+  [['', '        '], ['','status'], ['',' '], ['ao','='], ['',' '], ['s','"done"'], ['',' '], ['fl','if'], ['',' '], ['sl','self'], ['p','.'], ['pr','_processed'], ['',' '], ['fl','else'], ['',' '], ['s','"pending"']],
+  [['', '        '], ['rt','return'], ['',' '], ['s','f"Record(#'], ['fs','{'], ['sl','self'], ['p','.'], ['pr','id'], ['fs','}'], ['s',', '], ['fs','{'], ['','status'], ['fs','}'], ['s',', tags='], ['fs','{'], ['sl','self'], ['p','.'], ['pr','tags'], ['fs','}'], ['s',')"']],
+  [],
+  [],
+  [['cm', '# -- Pipeline engine ---------------------------------------------------------']],
+  [],
+  [['kw','class'], ['',' '], ['cd','Pipeline'], ['p',':']],
+  [['', '    '], ['ds', '"""Orchestrates data flow through a sequence of stages."""']],
+  [],
+  [['', '    '], ['kw','def'], ['',' '], ['fd','run'], ['p','('], ['sl','self'], ['p',', '], ['','records'], ['p',': '], ['ty','list'], ['p','['], ['cd','Record'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Generator'], ['p','['], ['cd','Record'], ['p',', '], ['cn','None'], ['p',', '], ['cn','None'], ['p',']'], ['p',':']],
+  [['', '        '], ['ds', '"""Process records through all stages, yielding survivors."""']],
+  [['', '        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"start"'], ['p',', '], ['p','{'], ['s','"count"'], ['p',': '], ['bi','len'], ['p','('], ['','records'], ['p',')'], ['p','}'], ['p',')']],
+  [],
+  [['', '        '], ['fl','for'], ['',' '], ['','record'], ['',' '], ['lg','in'], ['',' '], ['','records'], ['p',':']],
+  [['', '            '], ['','result'], ['p',':'], ['',' '], ['cd','Record'], ['',' '], ['lg','|'], ['',' '], ['cn','None'], ['',' '], ['ao','='], ['',' '], ['','record']],
+  [['', '            '], ['fl','for'], ['',' '], ['','stage'], ['',' '], ['lg','in'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stages'], ['p',':']],
+  [['', '                '], ['fl','if'], ['',' '], ['','result'], ['',' '], ['lg','is'], ['',' '], ['cn','None'], ['p',':']],
+  [['', '                    '], ['fl','break']],
+  [['', '                '], ['','result'], ['',' '], ['ao','='], ['',' '], ['','stage'], ['p','.'], ['ca','process'], ['p','('], ['','result'], ['p',')']],
+  [],
+  [['', '            '], ['fl','if'], ['',' '], ['','result'], ['',' '], ['lg','is not'], ['',' '], ['cn','None'], ['p',':']],
+  [['', '                '], ['','result'], ['p','.'], ['ca','mark_done'], ['p','()']],
+  [['', '                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
+  [['', '                '], ['rt','yield'], ['',' '], ['','result']],
+  [['', '            '], ['fl','else'], ['p',':']],
+  [['', '                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"dropped"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
+  [],
+  [['', '        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"end"'], ['p',', '], ['bi','dict'], ['p','('], ['sl','self'], ['p','.'], ['pr','_stats'], ['p',')'], ['p',')']],
+  [],
+  [['', '    '], ['kw','def'], ['',' '], ['fd','summary'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','str'], ['p',':']],
+  [['', '        '], ['','total'], ['',' '], ['ao','='], ['',' '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"dropped"'], ['p',']']],
+  [['', '        '], ['','pct'], ['',' '], ['ao','='], ['',' '], ['p','('], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','/'], ['',' '], ['','total'], ['',' '], ['mo','*'], ['',' '], ['n','100'], ['p',')'], ['',' '], ['fl','if'], ['',' '], ['','total'], ['',' '], ['lg','>'], ['',' '], ['n','0'], ['',' '], ['fl','else'], ['',' '], ['n','0.0']],
+  [['', '        '], ['rt','return'], ['',' '], ['s','f"Pipeline \''], ['fs','{'], ['sl','self'], ['p','.'], ['pr','name'], ['fs','}'], ['s','\': '], ['fs','{'], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','\'passed\''], ['p',']'], ['fs','}'], ['s','/'], ['fs','{'], ['','total'], ['fs','}'], ['s',' passed ('], ['fs','{'], ['','pct'], ['fs',':.1f}'], ['s','%)"']],
+];
+
+const codeEl = document.getElementById('code');
+const startLine = 34; // line numbering starts here
+lines.forEach((tokens, i) => {
+  const lineDiv = document.createElement('div');
+  lineDiv.className = 'line';
+  const lnSpan = document.createElement('span');
+  lnSpan.className = 'ln';
+  lnSpan.textContent = startLine + i;
+  lineDiv.appendChild(lnSpan);
+
+  const codeSpan = document.createElement('span');
+  codeSpan.className = 'code';
+  if (tokens.length === 0) {
+    codeSpan.innerHTML = '\n';
+  } else {
+    tokens.forEach(([cls, text]) => {
+      if (cls) {
+        const s = document.createElement('span');
+        s.className = cls;
+        s.textContent = text;
+        codeSpan.appendChild(s);
+      } else {
+        codeSpan.appendChild(document.createTextNode(text));
+      }
+    });
+  }
+  lineDiv.appendChild(codeSpan);
+  codeEl.appendChild(lineDiv);
+});
+</script>
+</body>
+</html>
