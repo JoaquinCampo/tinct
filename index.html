@@ -12,57 +12,122 @@
   :root {
     --page-bg: #0e1020;
     --page-fg: #c0c8e0;
-    --muted: #6070a0;
+    --muted: #6878a8;
     --card-bg: #141628;
     --card-border: #1e2240;
   }
   :root.light {
     --page-bg: #f0f2f8;
     --page-fg: #2e3440;
-    --muted: #6878a0;
+    --muted: #6070a0;
     --card-bg: #ffffff;
     --card-border: #d8dce8;
   }
 
-  /* Dark theme editor colors */
+  /* ═══ DARK THEME TOKEN COLORS ═══ */
   :root {
-    --ed-bg: #181A2E; --ed-fg: #C5CADA;
-    --ed-ln: #3A3F5C; --ed-ln-a: #7882A0;
+    --ed-bg: #181A2E; --ed-fg: #C8C8D8;
+    --ed-ln: #3A4060; --ed-ln-a: #7882A0;
     --ed-gutter: #1e2138; --ed-tab-bg: #141626; --ed-tab-active: #181A2E;
-    --ed-tab-border: #7AA2F0; --ed-tab-fg: #C5CADA; --ed-tab-ifg: #606880;
-    --ed-sidebar: #111322; --ed-title: #111322; --ed-status: #111322;
-    --ed-status-fg: #6B78A0;
-    /* Token colors */
-    --t-comment: #505870; --t-docstring: #606880;
-    --t-string: #8FBF6A; --t-escape: #6ABFAA; --t-fstr: #E8B84D;
-    --t-number: #6ABFAA; --t-const: #8FBF6A;
-    --t-structure: #7AA2F0; --t-import: #6B93E0;
-    --t-func-def: #82B1FF; --t-class-def: #9AC0FF;
-    --t-flow: #E8B84D; --t-return: #F0C96A; --t-except: #E8B84D;
-    --t-logic: #B48EDB; --t-math: #A0A8C8; --t-assign: #808898;
-    --t-call: #5EB8D4; --t-builtin: #6EC8E0;
-    --t-decorator: #D08860; --t-self: #606880;
-    --t-type: #7882A0; --t-punct: #404860; --t-prop: #A8B8CC;
-    --t-inherited: #9AC0FF;
+    --ed-tab-border: #78A8F0; --ed-tab-fg: #C8C8D8; --ed-tab-ifg: #607088;
+    --ed-title: #111322; --ed-status: #111322; --ed-status-fg: #6B78A0;
+
+    /* BLUE — Structure: things that CREATE */
+    --t-structure: #78A8F0;     /* def, class, lambda */
+    --t-import: #6898E0;        /* import, from, as */
+    --t-func-def: #88BAFF;      /* function name at definition */
+    --t-class-def: #A0CCFF;     /* class name at definition */
+    --t-inherited: #A0CCFF;     /* inherited class name */
+
+    /* AMBER — Flow: things that DIRECT */
+    --t-flow: #E8B850;          /* if, elif, else, for, while, with, assert */
+    --t-return: #F0CC70;        /* return, yield — exit points */
+    --t-except: #E8B850;        /* try, except, raise */
+
+    /* GREEN — Values: things that ARE */
+    --t-string: #98D070;        /* strings */
+    --t-number: #68D0B0;        /* numbers — teal-green, cooler */
+    --t-const: #98D070;         /* True, False, None */
+    --t-escape: #68D0B0;        /* escape sequences */
+    --t-fstr: #E8B850;          /* f-string braces — dynamic, flow-like */
+
+    /* PURPLE — Logic: things that REASON */
+    --t-logic: #C8A0F0;         /* and, or, not, is, in, comparisons */
+    --t-math: #B0A0D8;          /* +, -, *, /, %, ** */
+    --t-assign: #8898C0;        /* =, +=, -= */
+
+    /* CYAN — References: things that CALL */
+    --t-call: #58B8D8;          /* function calls */
+    --t-builtin: #70D0E8;       /* built-in functions/types */
+
+    /* CORAL — Parameters: things that FLOW IN */
+    --t-param: #E0A898;         /* function parameters */
+
+    /* TEAL — Types: things that DESCRIBE shape */
+    --t-type: #50C0C8;          /* type annotations */
+
+    /* LAVENDER — Properties: things that BELONG */
+    --t-prop: #C0B0E0;          /* object.property */
+
+    /* WARM PEACH — Decorators: things that TRANSFORM */
+    --t-decorator: #E89858;     /* @decorator */
+
+    /* STEEL — Self: the INSTANCE itself */
+    --t-self: #8090B8;          /* self, cls */
+
+    /* SAND — Variables: things that HOLD */
+    --t-var: #D0C8B0;           /* local variables */
+
+    /* OLIVE — Documentation: things that EXPLAIN */
+    --t-docstring: #88A868;     /* docstrings */
+
+    /* MUTED BLUE — Comments: things that NOTE */
+    --t-comment: #586880;       /* comments */
+
+    /* DIM — Punctuation: structural glue */
+    --t-punct: #4A5878;         /* brackets, commas, colons */
   }
+
+  /* ═══ LIGHT THEME TOKEN COLORS ═══ */
   :root.light {
-    --ed-bg: #FAFBFE; --ed-fg: #2E3440;
-    --ed-ln: #B0B8C8; --ed-ln-a: #6070A0;
+    --ed-bg: #FAFBFE; --ed-fg: #2E3448;
+    --ed-ln: #B0B8C8; --ed-ln-a: #6878A0;
     --ed-gutter: #F0F2F8; --ed-tab-bg: #EEF0F6; --ed-tab-active: #FAFBFE;
-    --ed-tab-border: #2E5BAA; --ed-tab-fg: #2E3440; --ed-tab-ifg: #8890A8;
-    --ed-sidebar: #E8EAF2; --ed-title: #E8EAF2; --ed-status: #E8EAF2;
-    --ed-status-fg: #6878A0;
-    --t-comment: #9098A8; --t-docstring: #7880A0;
-    --t-string: #3A7A2A; --t-escape: #1A7A6A; --t-fstr: #A06B10;
-    --t-number: #1A7A6A; --t-const: #3A7A2A;
-    --t-structure: #2E5BAA; --t-import: #3968B8;
-    --t-func-def: #1A4FA0; --t-class-def: #1A4FA0;
-    --t-flow: #A06B10; --t-return: #B87A18; --t-except: #8A5A08;
-    --t-logic: #7B42AC; --t-math: #6068A0; --t-assign: #7080A0;
-    --t-call: #1A7D99; --t-builtin: #0E6E8A;
-    --t-decorator: #A86030; --t-self: #8890A8;
-    --t-type: #5868A0; --t-punct: #B0B8C8; --t-prop: #4A5A70;
-    --t-inherited: #1A7D99;
+    --ed-tab-border: #2858AA; --ed-tab-fg: #2E3448; --ed-tab-ifg: #8890A8;
+    --ed-title: #E8EAF2; --ed-status: #E8EAF2; --ed-status-fg: #6878A0;
+
+    --t-structure: #2858AA;
+    --t-import: #3868B8;
+    --t-func-def: #1A48A0;
+    --t-class-def: #1A48A0;
+    --t-inherited: #1A5890;
+
+    --t-flow: #9A6508;
+    --t-return: #B07810;
+    --t-except: #8A5508;
+
+    --t-string: #287820;
+    --t-number: #087868;
+    --t-const: #287820;
+    --t-escape: #087868;
+    --t-fstr: #9A6508;
+
+    --t-logic: #7030A8;
+    --t-math: #5858A0;
+    --t-assign: #5868A0;
+
+    --t-call: #187898;
+    --t-builtin: #0C6880;
+
+    --t-param: #A84828;
+    --t-type: #088888;
+    --t-prop: #5848A0;
+    --t-decorator: #B85C18;
+    --t-self: #5870A0;
+    --t-var: #38384E;
+    --t-docstring: #4C7828;
+    --t-comment: #7888A0;
+    --t-punct: #98A8B8;
   }
 
   body {
@@ -79,7 +144,7 @@
   header { text-align: center; padding: 3rem 0 2rem; }
   header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; margin-bottom: 0.5rem; }
   header h1 .accent { color: var(--t-structure); }
-  header p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto; }
+  header p { font-size: 1.1rem; color: var(--muted); max-width: 620px; margin: 0 auto; }
 
   /* Toggle */
   .toggle-wrap { display: flex; justify-content: center; margin: 1.5rem 0 2.5rem; gap: 0.75rem; align-items: center; }
@@ -108,7 +173,7 @@
     background: var(--ed-title); padding: 8px 16px; display: flex; align-items: center; gap: 8px;
   }
   .dot { width: 12px; height: 12px; border-radius: 50%; }
-  .dot.r { background: #E05858; } .dot.y { background: #E8B84D; } .dot.g { background: #8FBF6A; }
+  .dot.r { background: #E05858; } .dot.y { background: #E8B850; } .dot.g { background: #98D070; }
   :root.light .dot.r { background: #D04040; }
   :root.light .dot.y { background: #C08A20; }
   :root.light .dot.g { background: #3A8A2A; }
@@ -141,7 +206,7 @@
     display: flex; justify-content: space-between;
   }
 
-  /* Token classes */
+  /* ═══ Token classes ═══ */
   .cm  { color: var(--t-comment); font-style: italic; }
   .ds  { color: var(--t-docstring); font-style: italic; }
   .s   { color: var(--t-string); }
@@ -150,7 +215,6 @@
   .n   { color: var(--t-number); }
   .cn  { color: var(--t-const); font-weight: bold; }
   .kw  { color: var(--t-structure); }
-  .kwb { color: var(--t-structure); font-weight: bold; }
   .im  { color: var(--t-import); }
   .fd  { color: var(--t-func-def); }
   .cd  { color: var(--t-class-def); }
@@ -168,6 +232,8 @@
   .p   { color: var(--t-punct); }
   .pr  { color: var(--t-prop); }
   .ih  { color: var(--t-inherited); font-style: italic; }
+  .pm  { color: var(--t-param); }
+  .v   { color: var(--t-var); }
 
   /* Legend */
   .legend { margin-bottom: 3rem; }
@@ -236,27 +302,51 @@
     <div class="legend-grid">
       <div class="legend-card">
         <h3><span class="swatch" style="background:var(--t-structure)"></span> Blue &mdash; Structure</h3>
-        <p>Things that <strong>create</strong>. <code class="kw">def</code> <code class="kw">class</code> <code class="kw">lambda</code> <code class="im">import</code> <code class="im">from</code>. Blue suggests blueprints, architecture, the skeleton of your program.</p>
+        <p>Things that <strong>create</strong>. <code class="kw">def</code> <code class="kw">class</code> <code class="im">import</code>. Function and class names glow brighter at their definition site.</p>
       </div>
       <div class="legend-card">
         <h3><span class="swatch" style="background:var(--t-flow)"></span> Amber &mdash; Flow</h3>
-        <p>Things that <strong>direct</strong>. <code class="fl">if</code> <code class="fl">for</code> <code class="fl">while</code> <code class="rt">return</code> <code class="fl">try</code> <code class="fl">raise</code>. Amber means caution &mdash; execution could go different ways here.</p>
+        <p>Things that <strong>direct</strong>. <code class="fl">if</code> <code class="fl">for</code> <code class="fl">while</code> <code class="rt">return</code> <code class="fl">try</code> <code class="fl">raise</code>. Amber means "pay attention, execution could branch."</p>
       </div>
       <div class="legend-card">
         <h3><span class="swatch" style="background:var(--t-string)"></span> Green &mdash; Values</h3>
-        <p>Things that <strong>are</strong>. <code class="s">"strings"</code> <code class="n">42</code> <code class="n">3.14</code> <code class="cn">True</code> <code class="cn">None</code>. Green is ground truth, the concrete data your program operates on.</p>
+        <p>Things that <strong>are</strong>. <code class="s">"strings"</code> <code class="n">42</code> <code class="n">3.14</code> <code class="cn">True</code> <code class="cn">None</code>. Numbers get a cooler <code class="n">teal</code>, text a warmer <code class="s">green</code>.</p>
       </div>
       <div class="legend-card">
         <h3><span class="swatch" style="background:var(--t-logic)"></span> Purple &mdash; Logic</h3>
-        <p>Things that <strong>reason</strong>. <code class="lg">and</code> <code class="lg">or</code> <code class="lg">not</code> <code class="lg">is</code> <code class="lg">in</code> <code class="lg">==</code>. Purple marks the decision-making layer of your code.</p>
+        <p>Things that <strong>reason</strong>. <code class="lg">and</code> <code class="lg">or</code> <code class="lg">not</code> <code class="lg">is</code> <code class="lg">in</code>. Math operators are a softer <code class="mo">lavender</code>, assignment a muted <code class="ao">steel</code>.</p>
       </div>
       <div class="legend-card">
-        <h3><span class="swatch" style="background:var(--t-call)"></span> Cyan &mdash; References</h3>
-        <p>Things that <strong>point</strong>. <code class="ca">func()</code> <code class="bi">print()</code> <code class="bi">len()</code>. Cyan sits between blue (structure) and green (values) &mdash; references use structure to access values.</p>
+        <h3><span class="swatch" style="background:var(--t-call)"></span> Cyan &mdash; Calls</h3>
+        <p>Things that <strong>invoke</strong>. <code class="ca">func()</code> <code class="bi">print()</code> <code class="bi">len()</code>. Built-ins glow brighter. Calls are where your logic actually <em>does</em> something.</p>
       </div>
       <div class="legend-card">
-        <h3><span class="swatch" style="background:var(--t-comment)"></span> Gray &mdash; Meta</h3>
-        <p>Things that <strong>describe</strong>. <code class="cm"># comments</code> <code class="ty">type hints</code> <code class="dc">@decorators</code> <code class="sl">self</code>. Not executed, not competing &mdash; informational elements fade.</p>
+        <h3><span class="swatch" style="background:var(--t-param)"></span> Coral &mdash; Parameters</h3>
+        <p>Things that <strong>flow in</strong>. <code class="pm">name</code> <code class="pm">value</code> <code class="pm">reason</code>. The warm inputs to a function — you need to spot them instantly.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-type)"></span> Teal &mdash; Types</h3>
+        <p>Things that <strong>describe shape</strong>. <code class="ty">str</code> <code class="ty">int</code> <code class="ty">list[T]</code>. Type annotations are structural info — teal makes them visible without shouting.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-prop)"></span> Lavender &mdash; Properties</h3>
+        <p>Things that <strong>belong</strong>. <code class="pr">self.name</code> <code class="pr">._stats</code>. Object attributes get their own gentle purple — they're members of something larger.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-decorator)"></span> Peach &mdash; Decorators</h3>
+        <p>Things that <strong>transform</strong>. <code class="dc">@property</code> <code class="dc">@dataclass</code>. Warm and conspicuous — decorators genuinely change what follows.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-var)"></span> Sand &mdash; Variables</h3>
+        <p>Things that <strong>hold</strong>. <code class="v">result</code> <code class="v">total</code> <code class="v">pct</code>. The most common tokens — warm enough to be alive, quiet enough to not overwhelm.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-self)"></span> Steel &mdash; Self</h3>
+        <p>The <strong>instance</strong> itself. <code class="sl">self</code> <code class="sl">cls</code>. You know it's there — a muted blue-gray that's readable without competing.</p>
+      </div>
+      <div class="legend-card">
+        <h3><span class="swatch" style="background:var(--t-docstring)"></span> Olive &mdash; Docs</h3>
+        <p>Things that <strong>explain</strong>. <code class="ds">"""docstrings"""</code> get olive green — they're valuable documentation, not just noise. <code class="cm"># comments</code> are dimmer.</p>
       </div>
     </div>
   </div>
@@ -270,7 +360,6 @@
 </div>
 
 <script>
-// Toggle
 const toggle = document.getElementById('toggle');
 const lblDark = document.getElementById('lbl-dark');
 const lblLight = document.getElementById('lbl-light');
@@ -284,115 +373,111 @@ toggle.addEventListener('click', () => {
   statusLabel.textContent = isLight ? 'Tinct Light' : 'Tinct Dark';
 });
 
-// Code — hand-tokenized Python with span classes
-// Each line is an array of [class, text] pairs. '' = default foreground.
-const lines = [
-  [['cm', '# -- Exceptions --------------------------------------------------------------']],
+// Hand-tokenized Python. Token classes:
+// kw=structure, im=import, fd=func-def, cd=class-def, ih=inherited
+// fl=flow, rt=return, ex=except
+// s=string, n=number, cn=constant, fs=fstr-brace, esc=escape
+// lg=logic, mo=math-op, ao=assign
+// ca=call, bi=builtin
+// pm=parameter, v=variable, pr=property, sl=self, ty=type
+// dc=decorator, ds=docstring, cm=comment, p=punctuation
+const L = [
+  [['cm','# -- Exceptions --------------------------------------------------------------']],
   [],
-  [['kw', 'class'], ['',' '], ['cd','PipelineError'], ['p','('], ['ih','Exception'], ['p',')'], ['p',':']],
-  [['', '    '], ['ds', '"""Base exception for all pipeline failures."""']],
-  [],
-  [],
-  [['kw', 'class'], ['',' '], ['cd','ValidationError'], ['p','('], ['ih','PipelineError'], ['p',')'], ['p',':']],
-  [['', '    '], ['ds', '"""Raised when a record fails validation."""']],
-  [],
-  [['', '    '], ['kw','def'], ['',' '], ['fd','__init__'], ['p','('], ['sl','self'], ['p',', '], ['','field_name'], ['p',': '], ['ty','str'], ['p',', '], ['','value'], ['p',': '], ['ty','Any'], ['p',', '], ['','reason'], ['p',': '], ['ty','str'], ['',' '], ['ao','='], ['',' '], ['s','"invalid"'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['cn','None'], ['p',':']],
-  [['', '        '], ['sl','self'], ['p','.'], ['pr','field_name'], ['',' '], ['ao','='], ['',' '], ['','field_name']],
-  [['', '        '], ['sl','self'], ['p','.'], ['pr','value'], ['',' '], ['ao','='], ['',' '], ['','value']],
-  [['', '        '], ['bi','super'], ['p','()'], ['p','.'], ['ca','__init__'], ['p','('], ['s','f"'], ['fs','{'], ['','field_name'], ['fs','}'], ['s','='], ['fs','{'], ['','value'], ['fs','!r}'], ['s',': '], ['fs','{'], ['','reason'], ['fs','}'], ['s','"'], ['p',')']],
+  [['kw','class'], ['',' '], ['cd','PipelineError'], ['p','('], ['ih','Exception'], ['p',')'], ['p',':']],
+  [['','    '], ['ds','"""Base exception for all pipeline failures."""']],
   [],
   [],
-  [['cm', '# -- Decorators --------------------------------------------------------------']],
+  [['kw','class'], ['',' '], ['cd','ValidationError'], ['p','('], ['ih','PipelineError'], ['p',')'], ['p',':']],
+  [['','    '], ['ds','"""Raised when a record fails validation."""']],
   [],
-  [['','T'], ['',' '], ['ao','='], ['',' '], ['ca','TypeVar'], ['p','('], ['s','"T"'], ['p',')']],
-  [],
-  [],
-  [['kw','def'], ['',' '], ['fd','register'], ['p','('], ['','name'], ['p',': '], ['ty','str'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Callable'], ['p',':']],
-  [['', '    '], ['ds', '"""Class decorator that registers a stage in the global registry."""']],
-  [['', '    '], ['kw','def'], ['',' '], ['fd','decorator'], ['p','('], ['','cls'], ['p',': '], ['ty','type'], ['p','['], ['ty','T'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','type'], ['p','['], ['ty','T'], ['p',']'], ['p',':']],
-  [['', '        '], ['','_REGISTRY'], ['p','['], ['','name'], ['p',']'], ['',' '], ['ao','='], ['',' '], ['','cls']],
-  [['', '        '], ['rt','return'], ['',' '], ['','cls']],
-  [['', '    '], ['rt','return'], ['',' '], ['','decorator']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','__init__'], ['p','('], ['sl','self'], ['p',', '], ['pm','field_name'], ['p',': '], ['ty','str'], ['p',', '], ['pm','value'], ['p',': '], ['ty','Any'], ['p',', '], ['pm','reason'], ['p',': '], ['ty','str'], ['',' '], ['ao','='], ['',' '], ['s','"invalid"'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['cn','None'], ['p',':']],
+  [['','        '], ['sl','self'], ['p','.'], ['pr','field_name'], ['',' '], ['ao','='], ['',' '], ['v','field_name']],
+  [['','        '], ['sl','self'], ['p','.'], ['pr','value'], ['',' '], ['ao','='], ['',' '], ['v','value']],
+  [['','        '], ['bi','super'], ['p','()'], ['p','.'], ['ca','__init__'], ['p','('], ['s','f"'], ['fs','{'], ['v','field_name'], ['fs','}'], ['s','='], ['fs','{'], ['v','value'], ['fs','!r}'], ['s',': '], ['fs','{'], ['v','reason'], ['fs','}'], ['s','"'], ['p',')']],
   [],
   [],
-  [['cm', '# -- Data models -------------------------------------------------------------']],
+  [['cm','# -- Decorators --------------------------------------------------------------']],
+  [],
+  [['v','T'], ['',' '], ['ao','='], ['',' '], ['ca','TypeVar'], ['p','('], ['s','"T"'], ['p',')']],
+  [],
+  [],
+  [['kw','def'], ['',' '], ['fd','register'], ['p','('], ['pm','name'], ['p',': '], ['ty','str'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Callable'], ['p',':']],
+  [['','    '], ['ds','"""Class decorator that registers a stage in the global registry."""']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','decorator'], ['p','('], ['pm','cls'], ['p',': '], ['ty','type'], ['p','['], ['ty','T'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','type'], ['p','['], ['ty','T'], ['p',']'], ['p',':']],
+  [['','        '], ['v','_REGISTRY'], ['p','['], ['v','name'], ['p',']'], ['',' '], ['ao','='], ['',' '], ['v','cls']],
+  [['','        '], ['rt','return'], ['',' '], ['v','cls']],
+  [['','    '], ['rt','return'], ['',' '], ['v','decorator']],
+  [],
+  [],
+  [['cm','# -- Data models -------------------------------------------------------------']],
   [],
   [['dc','@'], ['dc','dataclass']],
   [['kw','class'], ['',' '], ['cd','Record'], ['p',':']],
-  [['', '    '], ['ds', '"""A single data record flowing through the pipeline."""']],
-  [['', '    '], ['','id'], ['p',':'], ['',' '], ['ty','int']],
-  [['', '    '], ['','payload'], ['p',':'], ['',' '], ['ty','dict'], ['p','['], ['ty','str'], ['p',', '], ['ty','Any'], ['p',']']],
-  [['', '    '], ['','tags'], ['p',':'], ['',' '], ['ty','list'], ['p','['], ['ty','str'], ['p',']'], ['',' '], ['ao','='], ['',' '], ['ca','field'], ['p','('], ['','default_factory'], ['ao','='], ['bi','list'], ['p',')']],
-  [['', '    '], ['','_processed'], ['p',':'], ['',' '], ['ty','bool'], ['',' '], ['ao','='], ['',' '], ['ca','field'], ['p','('], ['','default'], ['ao','='], ['cn','False'], ['p',', '], ['','repr'], ['ao','='], ['cn','False'], ['p',')']],
+  [['','    '], ['ds','"""A single data record flowing through the pipeline."""']],
+  [['','    '], ['v','id'], ['p',':'], ['',' '], ['ty','int']],
+  [['','    '], ['v','payload'], ['p',':'], ['',' '], ['ty','dict'], ['p','['], ['ty','str'], ['p',', '], ['ty','Any'], ['p',']']],
+  [['','    '], ['v','tags'], ['p',':'], ['',' '], ['ty','list'], ['p','['], ['ty','str'], ['p',']'], ['',' '], ['ao','='], ['',' '], ['ca','field'], ['p','('], ['pm','default_factory'], ['ao','='], ['bi','list'], ['p',')']],
+  [['','    '], ['v','_processed'], ['p',':'], ['',' '], ['ty','bool'], ['',' '], ['ao','='], ['',' '], ['ca','field'], ['p','('], ['pm','default'], ['ao','='], ['cn','False'], ['p',', '], ['pm','repr'], ['ao','='], ['cn','False'], ['p',')']],
   [],
-  [['', '    '], ['dc','@'], ['dc','property']],
-  [['', '    '], ['kw','def'], ['',' '], ['fd','is_processed'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','bool'], ['p',':']],
-  [['', '        '], ['rt','return'], ['',' '], ['sl','self'], ['p','.'], ['pr','_processed']],
+  [['','    '], ['dc','@'], ['dc','property']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','is_processed'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','bool'], ['p',':']],
+  [['','        '], ['rt','return'], ['',' '], ['sl','self'], ['p','.'], ['pr','_processed']],
   [],
-  [['', '    '], ['kw','def'], ['',' '], ['fd','__str__'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','str'], ['p',':']],
-  [['', '        '], ['','status'], ['',' '], ['ao','='], ['',' '], ['s','"done"'], ['',' '], ['fl','if'], ['',' '], ['sl','self'], ['p','.'], ['pr','_processed'], ['',' '], ['fl','else'], ['',' '], ['s','"pending"']],
-  [['', '        '], ['rt','return'], ['',' '], ['s','f"Record(#'], ['fs','{'], ['sl','self'], ['p','.'], ['pr','id'], ['fs','}'], ['s',', '], ['fs','{'], ['','status'], ['fs','}'], ['s',', tags='], ['fs','{'], ['sl','self'], ['p','.'], ['pr','tags'], ['fs','}'], ['s',')"']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','__str__'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','str'], ['p',':']],
+  [['','        '], ['v','status'], ['',' '], ['ao','='], ['',' '], ['s','"done"'], ['',' '], ['fl','if'], ['',' '], ['sl','self'], ['p','.'], ['pr','_processed'], ['',' '], ['fl','else'], ['',' '], ['s','"pending"']],
+  [['','        '], ['rt','return'], ['',' '], ['s','f"Record(#'], ['fs','{'], ['sl','self'], ['p','.'], ['pr','id'], ['fs','}'], ['s',', '], ['fs','{'], ['v','status'], ['fs','}'], ['s',', tags='], ['fs','{'], ['sl','self'], ['p','.'], ['pr','tags'], ['fs','}'], ['s',')"']],
   [],
   [],
-  [['cm', '# -- Pipeline engine ---------------------------------------------------------']],
+  [['cm','# -- Pipeline engine ---------------------------------------------------------']],
   [],
   [['kw','class'], ['',' '], ['cd','Pipeline'], ['p',':']],
-  [['', '    '], ['ds', '"""Orchestrates data flow through a sequence of stages."""']],
+  [['','    '], ['ds','"""Orchestrates data flow through a sequence of stages."""']],
   [],
-  [['', '    '], ['kw','def'], ['',' '], ['fd','run'], ['p','('], ['sl','self'], ['p',', '], ['','records'], ['p',': '], ['ty','list'], ['p','['], ['cd','Record'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Generator'], ['p','['], ['cd','Record'], ['p',', '], ['cn','None'], ['p',', '], ['cn','None'], ['p',']'], ['p',':']],
-  [['', '        '], ['ds', '"""Process records through all stages, yielding survivors."""']],
-  [['', '        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"start"'], ['p',', '], ['p','{'], ['s','"count"'], ['p',': '], ['bi','len'], ['p','('], ['','records'], ['p',')'], ['p','}'], ['p',')']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','run'], ['p','('], ['sl','self'], ['p',', '], ['pm','records'], ['p',': '], ['ty','list'], ['p','['], ['cd','Record'], ['p',']'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','Generator'], ['p','['], ['cd','Record'], ['p',', '], ['cn','None'], ['p',', '], ['cn','None'], ['p',']'], ['p',':']],
+  [['','        '], ['ds','"""Process records through all stages, yielding survivors."""']],
+  [['','        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"start"'], ['p',', '], ['p','{'], ['s','"count"'], ['p',': '], ['bi','len'], ['p','('], ['v','records'], ['p',')'], ['p','}'], ['p',')']],
   [],
-  [['', '        '], ['fl','for'], ['',' '], ['','record'], ['',' '], ['lg','in'], ['',' '], ['','records'], ['p',':']],
-  [['', '            '], ['','result'], ['p',':'], ['',' '], ['cd','Record'], ['',' '], ['lg','|'], ['',' '], ['cn','None'], ['',' '], ['ao','='], ['',' '], ['','record']],
-  [['', '            '], ['fl','for'], ['',' '], ['','stage'], ['',' '], ['lg','in'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stages'], ['p',':']],
-  [['', '                '], ['fl','if'], ['',' '], ['','result'], ['',' '], ['lg','is'], ['',' '], ['cn','None'], ['p',':']],
-  [['', '                    '], ['fl','break']],
-  [['', '                '], ['','result'], ['',' '], ['ao','='], ['',' '], ['','stage'], ['p','.'], ['ca','process'], ['p','('], ['','result'], ['p',')']],
+  [['','        '], ['fl','for'], ['',' '], ['v','record'], ['',' '], ['lg','in'], ['',' '], ['v','records'], ['p',':']],
+  [['','            '], ['v','result'], ['p',':'], ['',' '], ['cd','Record'], ['',' '], ['lg','|'], ['',' '], ['cn','None'], ['',' '], ['ao','='], ['',' '], ['v','record']],
+  [['','            '], ['fl','for'], ['',' '], ['v','stage'], ['',' '], ['lg','in'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stages'], ['p',':']],
+  [['','                '], ['fl','if'], ['',' '], ['v','result'], ['',' '], ['lg','is'], ['',' '], ['cn','None'], ['p',':']],
+  [['','                    '], ['fl','break']],
+  [['','                '], ['v','result'], ['',' '], ['ao','='], ['',' '], ['v','stage'], ['p','.'], ['ca','process'], ['p','('], ['v','result'], ['p',')']],
   [],
-  [['', '            '], ['fl','if'], ['',' '], ['','result'], ['',' '], ['lg','is not'], ['',' '], ['cn','None'], ['p',':']],
-  [['', '                '], ['','result'], ['p','.'], ['ca','mark_done'], ['p','()']],
-  [['', '                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
-  [['', '                '], ['rt','yield'], ['',' '], ['','result']],
-  [['', '            '], ['fl','else'], ['p',':']],
-  [['', '                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"dropped"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
+  [['','            '], ['fl','if'], ['',' '], ['v','result'], ['',' '], ['lg','is not'], ['',' '], ['cn','None'], ['p',':']],
+  [['','                '], ['v','result'], ['p','.'], ['ca','mark_done'], ['p','()']],
+  [['','                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
+  [['','                '], ['rt','yield'], ['',' '], ['v','result']],
+  [['','            '], ['fl','else'], ['p',':']],
+  [['','                '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"dropped"'], ['p',']'], ['',' '], ['mo','+='], ['',' '], ['n','1']],
   [],
-  [['', '        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"end"'], ['p',', '], ['bi','dict'], ['p','('], ['sl','self'], ['p','.'], ['pr','_stats'], ['p',')'], ['p',')']],
+  [['','        '], ['sl','self'], ['p','.'], ['ca','_emit'], ['p','('], ['s','"end"'], ['p',', '], ['bi','dict'], ['p','('], ['sl','self'], ['p','.'], ['pr','_stats'], ['p',')'], ['p',')']],
   [],
-  [['', '    '], ['kw','def'], ['',' '], ['fd','summary'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','str'], ['p',':']],
-  [['', '        '], ['','total'], ['',' '], ['ao','='], ['',' '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"dropped"'], ['p',']']],
-  [['', '        '], ['','pct'], ['',' '], ['ao','='], ['',' '], ['p','('], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','/'], ['',' '], ['','total'], ['',' '], ['mo','*'], ['',' '], ['n','100'], ['p',')'], ['',' '], ['fl','if'], ['',' '], ['','total'], ['',' '], ['lg','>'], ['',' '], ['n','0'], ['',' '], ['fl','else'], ['',' '], ['n','0.0']],
-  [['', '        '], ['rt','return'], ['',' '], ['s','f"Pipeline \''], ['fs','{'], ['sl','self'], ['p','.'], ['pr','name'], ['fs','}'], ['s','\': '], ['fs','{'], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','\'passed\''], ['p',']'], ['fs','}'], ['s','/'], ['fs','{'], ['','total'], ['fs','}'], ['s',' passed ('], ['fs','{'], ['','pct'], ['fs',':.1f}'], ['s','%)"']],
+  [['','    '], ['kw','def'], ['',' '], ['fd','summary'], ['p','('], ['sl','self'], ['p',')'], ['',' '], ['p','->'], ['',' '], ['ty','str'], ['p',':']],
+  [['','        '], ['v','total'], ['',' '], ['ao','='], ['',' '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','+'], ['',' '], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"dropped"'], ['p',']']],
+  [['','        '], ['v','pct'], ['',' '], ['ao','='], ['',' '], ['p','('], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','"passed"'], ['p',']'], ['',' '], ['mo','/'], ['',' '], ['v','total'], ['',' '], ['mo','*'], ['',' '], ['n','100'], ['p',')'], ['',' '], ['fl','if'], ['',' '], ['v','total'], ['',' '], ['lg','>'], ['',' '], ['n','0'], ['',' '], ['fl','else'], ['',' '], ['n','0.0']],
+  [['','        '], ['rt','return'], ['',' '], ['s','f"Pipeline \''], ['fs','{'], ['sl','self'], ['p','.'], ['pr','name'], ['fs','}'], ['s','\': '], ['fs','{'], ['sl','self'], ['p','.'], ['pr','_stats'], ['p','['], ['s','\'passed\''], ['p',']'], ['fs','}'], ['s','/'], ['fs','{'], ['v','total'], ['fs','}'], ['s',' passed ('], ['fs','{'], ['v','pct'], ['fs',':.1f}'], ['s','%)"']],
 ];
 
 const codeEl = document.getElementById('code');
-const startLine = 34; // line numbering starts here
-lines.forEach((tokens, i) => {
-  const lineDiv = document.createElement('div');
-  lineDiv.className = 'line';
-  const lnSpan = document.createElement('span');
-  lnSpan.className = 'ln';
-  lnSpan.textContent = startLine + i;
-  lineDiv.appendChild(lnSpan);
-
-  const codeSpan = document.createElement('span');
-  codeSpan.className = 'code';
-  if (tokens.length === 0) {
-    codeSpan.innerHTML = '\n';
-  } else {
-    tokens.forEach(([cls, text]) => {
-      if (cls) {
-        const s = document.createElement('span');
-        s.className = cls;
-        s.textContent = text;
-        codeSpan.appendChild(s);
-      } else {
-        codeSpan.appendChild(document.createTextNode(text));
-      }
-    });
-  }
-  lineDiv.appendChild(codeSpan);
-  codeEl.appendChild(lineDiv);
+const startLine = 34;
+L.forEach((tokens, i) => {
+  const d = document.createElement('div');
+  d.className = 'line';
+  const ln = document.createElement('span');
+  ln.className = 'ln';
+  ln.textContent = startLine + i;
+  d.appendChild(ln);
+  const c = document.createElement('span');
+  c.className = 'code';
+  if (!tokens.length) { c.innerHTML = '\n'; }
+  else tokens.forEach(([cls, text]) => {
+    if (cls) { const s = document.createElement('span'); s.className = cls; s.textContent = text; c.appendChild(s); }
+    else c.appendChild(document.createTextNode(text));
+  });
+  d.appendChild(c);
+  codeEl.appendChild(d);
 });
 </script>
 </body>
