@@ -8,65 +8,52 @@ Designed for Python first, works well everywhere.
 
 ## The Color System
 
-Tinct uses six hues, each assigned to a specific cognitive role:
+Tinct uses twelve chromatic zones, each mapped to a distinct cognitive role. Every token earns its color — nothing is gray by default.
 
-| Color | Role | What it highlights | Why this color |
-|-------|------|-------------------|----------------|
-| **Blue** | Structure | `def`, `class`, `lambda`, `import`, `from`, `as` | Blueprints and architecture — blue is stability, the skeleton of your program |
-| **Amber** | Flow | `if`, `for`, `while`, `return`, `yield`, `try`, `except`, `raise`, `break`, `continue`, `pass`, `with`, `assert` | Traffic lights and caution — amber says "pay attention, execution could go different ways" |
-| **Green** | Values | strings, numbers, `True`, `False`, `None` | Ground truth — green is concrete reality, the raw data your program operates on |
-| **Purple** | Logic | `and`, `or`, `not`, `is`, `in`, comparison operators | Reasoning and thought — purple marks the decision-making layer |
-| **Cyan** | References | function calls, built-in functions and types | Between structure (blue) and values (green) — references are how you *use* structure to *access* values |
-| **Gray** | Meta | comments, docstrings, type hints, decorators, `self`/`cls`, punctuation | Not executed, not competing — informational elements fade so executable code stands out |
+| Color | Role | What it highlights |
+|-------|------|-------------------|
+| **Blue** | Structure | `def`, `class`, `lambda`, `import`, `from`, `as` |
+| **Amber** | Flow | `if`, `for`, `while`, `return`, `try`, `except`, `raise`, `break`, `continue`, `pass`, `with` |
+| **Green** | Values | strings, `True`, `False` |
+| **Mint** | Numbers | numeric literals — cooler than strings to feel distinct |
+| **Violet** | Logic | `and`, `or`, `not`, `is`, `in`, comparison operators |
+| **Cyan** | Calls | function calls, built-in functions |
+| **Coral** | Parameters | function parameters — the contract between caller and callee |
+| **Teal** | Types | type hints, annotations — informational but semantically rich |
+| **Pink** | Properties | attribute access (`self.x`, `obj.method`) |
+| **Orange** | Decorators | `@property`, `@staticmethod` — they change behavior, they deserve attention |
+| **Steel** | Self | `self`, `cls` — ever-present, deliberately quiet |
+| **Sand** | Variables | local names — warm neutral, the connective tissue of code |
 
-### Subcategories within each role
+Three more elements complete the palette:
 
-Colors vary in lightness and saturation within each hue family to distinguish subcategories:
+- **Olive** — docstrings, brighter than comments because they're documentation
+- **Gray** — comments, punctuation, structural noise
+- **Silver-blue** — `None`, representing absence/void rather than a concrete value
 
-**Structure (Blue)**
-- `def`, `class`, `lambda` — full blue, these are the primary structural keywords
-- Function/class names at definition — slightly lighter, the name being defined
-- `import`/`from`/`as` — slightly darker, import is structural but secondary
+### Why twelve, not six?
 
-**Flow (Amber)**
-- `if`/`for`/`while`/`with` — full amber, primary control flow
-- `return`/`yield` — lighter amber, these are exit points
-- `try`/`except`/`raise` — darker amber, exceptional paths deserve gravity
-- `break`/`continue`/`pass` — muted amber, minor flow adjustments
+The original philosophy grouped many tokens into "meta" gray — parameters, variables, types, decorators, properties, and `self` all competed for the same dim space. But these serve genuinely different cognitive roles. A parameter is not a variable is not a type hint. Giving each its own chromatic identity means you can identify what any token *does* from color alone, without reading it.
 
-**Values (Green)**
-- Strings — warm green, textual data
-- Numbers — teal-green (cooler), numeric data feels different from text
-- `True`/`False`/`None` — bold green, special sentinel values
-- f-string expressions — amber braces (they're dynamic, flow-like)
+### Color distance
 
-**Logic (Purple)**
-- `and`/`or`/`not` — full purple, boolean logic
-- `is`/`in`/comparisons — same purple, same cognitive role
-- Math operators — desaturated purple-gray, too common to be vivid
-- Assignment `=` — nearly neutral, just plumbing
-
-**References (Cyan)**
-- Function calls — full cyan, where action happens
-- Built-in functions/types — slightly brighter cyan, standard library
-
-**Meta (Gray)**
-- Comments — dim, background information
-- Docstrings — slightly brighter than comments, they have lasting value
-- Type hints — between comments and code, informational
-- Decorators — warm peach (not gray), because decorators *change behavior*
-- `self`/`cls` — dim, you always know they're there
-- Punctuation — very dim, structural noise
+Adjacent colors are pushed apart on the color wheel so nothing blurs together:
+- **Teal** types vs **Cyan** calls — green-teal vs blue-cyan
+- **Pink** properties vs **Violet** logic — warm pink vs cool blue-violet
+- **Coral** parameters vs **Orange** decorators — rose-red vs warm orange
+- **Mint** numbers vs **Teal** types — bright seafoam vs deeper teal
 
 ## Design Principles
 
 1. **Colors encode role, not syntax category.** "Keyword" is not a useful category — `def` (structure) and `if` (flow) and `and` (logic) serve completely different cognitive functions and get completely different colors.
 
-2. **Frequency inversely correlates with saturation.** Things you see constantly (variables, punctuation) stay neutral. Things that are rare and significant (literals, flow control) use vivid colors.
+2. **Every token earns its color.** Nothing defaults to gray. Parameters, variables, types, properties, decorators, and `self` each get their own chromatic identity because they play distinct cognitive roles.
 
-3. **Related concepts share hue families.** All literal values are green-family. All structural definitions are blue-family. You should be able to identify the *category* of any token from its color alone.
+3. **Frequency inversely correlates with saturation.** Things you see constantly (variables, punctuation) use warm neutrals. Things that are rare and significant (literals, flow control) use vivid colors.
 
-4. **Python-specific awareness.** `self` fades to near-invisible. Decorators get their own warm treatment because they genuinely affect behavior. f-string interpolations are visually distinct from the string around them. Docstrings are brighter than comments because they're documentation, not notes.
+4. **`None` is void, not a value.** `True` and `False` are concrete values (green). `None` represents absence — it gets a muted silver-blue to visually separate it from affirmative data.
+
+5. **Python-specific awareness.** `self` fades to steel. Decorators get warm orange because they change behavior. f-string interpolations are visually distinct from the string around them. Docstrings are brighter than comments because they're documentation, not notes.
 
 ## Variants
 
