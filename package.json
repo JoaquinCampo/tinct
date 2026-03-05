@@ -1,0 +1,46 @@
+{
+  "name": "tinct",
+  "displayName": "Tinct — Semantic Python Theme",
+  "description": "A VS Code color theme where every color has a reason. Blue for structure, amber for flow, green for values, purple for logic, cyan for references, gray for meta.",
+  "version": "1.0.0",
+  "publisher": "JoaquinCampo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JoaquinCampo/tinct"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "color-theme",
+    "python",
+    "semantic",
+    "syntax-highlighting",
+    "dark-theme",
+    "light-theme"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Tinct Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/tinct-dark.json"
+      },
+      {
+        "label": "Tinct Light",
+        "uiTheme": "vs",
+        "path": "./themes/tinct-light.json"
+      }
+    ]
+  },
+  "icon": "images/icon.png",
+  "galleryBanner": {
+    "color": "#181A2E",
+    "theme": "dark"
+  }
+}

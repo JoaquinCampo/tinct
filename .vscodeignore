@@ -1,0 +1,5 @@
+.git
+.gitignore
+sample.py
+*.md
+!README.md
