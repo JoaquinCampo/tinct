@@ -322,7 +322,7 @@
       }
     },
     {
-      "name": "Built-in constants (True, False, None)",
+      "name": "Built-in constants (True, False)",
       "scope": [
         "constant.language",
         "constant.language.python"
@@ -330,6 +330,14 @@
       "settings": {
         "foreground": "#287820",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "None — absence of value",
+      "scope": "constant.language.none.python",
+      "settings": {
+        "foreground": "#6878A0",
+        "fontStyle": "italic"
       }
     },
     {
@@ -875,10 +883,7 @@
     },
     "type:python": "#088080",
     "type.defaultLibrary:python": "#0C5888",
-    "builtinConstant:python": {
-      "foreground": "#287820",
-      "bold": true
-    },
+    "builtinConstant:python": false,
     "magicFunction:python": {
       "foreground": "#1A48A0",
       "italic": true

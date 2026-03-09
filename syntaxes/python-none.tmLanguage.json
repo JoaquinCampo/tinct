@@ -1,0 +1,10 @@
+{
+  "scopeName": "tinct.python.none",
+  "injectionSelector": "L:source.python",
+  "patterns": [
+    {
+      "match": "(?<!\\.)\\b(None)\\b",
+      "name": "constant.language.none.python"
+    }
+  ]
+}

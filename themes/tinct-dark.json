@@ -287,7 +287,7 @@
       }
     },
     {
-      "name": "Language Constants (True, False, None)",
+      "name": "Language Constants (True, False)",
       "scope": [
         "constant.language",
         "constant.language.python"
@@ -295,6 +295,14 @@
       "settings": {
         "foreground": "#90D068",
         "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "None — absence of value",
+      "scope": "constant.language.none.python",
+      "settings": {
+        "foreground": "#9098B8",
+        "fontStyle": "italic"
       }
     },
     {
@@ -854,10 +862,7 @@
     },
     "decorator:python": "#F09048",
     "type:python": "#38C8B8",
-    "builtinConstant:python": {
-      "foreground": "#90D068",
-      "fontStyle": "bold"
-    },
+    "builtinConstant:python": false,
     "function.defaultLibrary:python": "#60C8F0",
     "class.defaultLibrary:python": "#60C8F0",
 

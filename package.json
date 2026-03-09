@@ -36,9 +36,15 @@
         "uiTheme": "vs",
         "path": "./themes/tinct-light.json"
       }
+    ],
+    "grammars": [
+      {
+        "scopeName": "tinct.python.none",
+        "path": "./syntaxes/python-none.tmLanguage.json",
+        "injectTo": ["source.python"]
+      }
     ]
   },
-  "icon": "images/icon.png",
   "galleryBanner": {
     "color": "#181A2E",
     "theme": "dark"
